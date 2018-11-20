@@ -1,0 +1,80 @@
+version: '2'
+
+services:
+  nextcloud_db:
+    image: mariadb
+    container_name: nextcloud_db
+    restart: always
+    volumes:
+      - philleconnect_nextcloud_db:/var/lib/mysql
+    networks:
+      - philleconnect_nextcloud
+    environment:
+      - MYSQL_ROOT_PASSWORD=test
+      - MYSQL_PASSWORD=test
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+  
+#  collabora:
+#    image: collabora/code:3.0.1.4
+#    container_name: collabora
+#    environment:
+#      domain: collabora
+#    ports:
+#      - 9980:9980
+#    restart: always
+  
+  onlyoffice:
+    image: onlyoffice/documentserver
+    container_name: onlyoffice
+    ports:
+      - 82:80
+    networks:
+      - servercontainers_philleconnect
+    restart: always
+  
+  nextcloud_fpm:
+    #image: nextcloud:14-fpm
+    build: fpm/
+    container_name: nextcloud_fpm
+    links:
+      - nextcloud_db
+      - onlyoffice
+    volumes:
+      - philleconnect_nextcloud_html:/var/www/html
+    restart: always
+    environment:
+      - NEXTCLOUD_ADMIN_USER=admin
+      - NEXTCLOUD_ADMIN_PASSWORD=test
+      - NEXTCLOUD_DATA_DIR=/var/www/html/data
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+      - MYSQL_PASSWORD=test
+      - MYSQL_HOST=nextcloud_db
+    networks:
+      - servercontainers_philleconnect
+  
+  nextcloud:
+    build: nginx/
+    container_name: nextcloud
+    ports:
+      - 86:80
+    links:
+      - nextcloud_fpm
+      - onlyoffice
+    volumes:
+      - philleconnect_nextcloud_html:/var/www/html
+    restart: always
+    networks:
+      - servercontainers_philleconnect
+
+volumes:
+  philleconnect_nextcloud_db:
+  philleconnect_nextcloud_html:
+#    - ./nextcloud/data:/var/www/html/data
+
+networks:
+#  default:
+#    external:
+#      name: servercontainers_philleconnect
+  philleconnect_nextcloud:
