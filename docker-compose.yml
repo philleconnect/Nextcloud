@@ -69,7 +69,7 @@ services:
       - 86:80
     links:
       - nextcloud_fpm
-      - onlyoffice
+#      - onlyoffice
     volumes:
       - nextcloud_html:/var/www/html
     restart: always
