@@ -31,8 +31,8 @@ services:
       - 82:80
     networks:
       - nextcloud
-    links:
-      - nextcloud
+#    links:
+#      - nextcloud
     volumes:
       - onlyoffice_log:/var/log/onlyoffice
       - onlyoffice_lib:/var/lib/onlyoffice
@@ -69,7 +69,7 @@ services:
       - 86:80
     links:
       - nextcloud_fpm
-#      - onlyoffice
+      - onlyoffice
     volumes:
       - nextcloud_html:/var/www/html
     restart: always
