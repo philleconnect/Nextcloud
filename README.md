@@ -3,14 +3,14 @@ Nextcloud-Container including an online-office package (Collabora or Onlyoffice)
 
 # !!! THIS IS STILL IN ALPHA-STATE !!!
 
-##To install:
+## To install:
 
 * start the containers
 * manually add `'onlyoffice'` to the `trusted_domains`-array in `/var/www/html/config/config.php` (inside the nextcloud-container):
-** `docker exec -ti nextcloud /bin/bash`
-** `nano /var/www/html/config/config.php`
-** add line `    1 => 'onlyoffice',` after line 23
-** optionally add a line `  'trusted_proxies' => ['172.16.0.102', 'philleconnect'],` after the trusted domains
+  - `docker exec -ti nextcloud /bin/bash`
+  - `nano /var/www/html/config/config.php`
+  - add line `    1 => 'onlyoffice',` after line 23
+  - optionally add a line `  'trusted_proxies' => ['172.16.0.102', 'philleconnect'],` after the trusted domains
 
 ## connect to LDAP
 
