@@ -27,9 +27,9 @@ activate LDAP-App and in the settings for it:
 
 activate app for OnlyOffice and set it up in the settings:
 
-* someting like `http://172.16.1.44:42/` in the first field 
+* someting like `http://172.16.1.44:42/` (or `onlyoffice.my-school.de` if you run it under that domain) in the first field 
 * `http://onlyoffice/` for internal document editing
-* someting like `http://172.16.1.44:86/` for external editing
+* `http://nextcloud/` for external editing
 * the adress needs to be in the trusted domains (see above)!
 
 ## Samba-Shares

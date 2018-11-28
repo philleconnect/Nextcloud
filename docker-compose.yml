@@ -31,6 +31,8 @@ services:
       - 82:80
     networks:
       - nextcloud
+    links:
+      - nextcloud
     volumes:
       - onlyoffice_log:/var/log/onlyoffice
       - onlyoffice_lib:/var/lib/onlyoffice
