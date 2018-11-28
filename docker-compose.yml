@@ -6,9 +6,9 @@ services:
     container_name: nextcloud_db
     restart: always
     volumes:
-      - philleconnect_nextcloud_db:/var/lib/mysql
+      - nextcloud_db:/var/lib/mysql
     networks:
-      - philleconnect_nextcloud
+      - nextcloud
     environment:
       - MYSQL_ROOT_PASSWORD=test
       - MYSQL_PASSWORD=test
@@ -30,7 +30,13 @@ services:
     ports:
       - 82:80
     networks:
-      - servercontainers_philleconnect
+      - nextcloud
+    volumes:
+      - onlyoffice_log:/var/log/onlyoffice
+      - onlyoffice_lib:/var/lib/onlyoffice
+      - onlyoffice_sql:/var/lib/postgresql
+      - onlyoffice_data:/var/www/onlyoffice/Data
+      - onlyoffice_fonts:/usr/share/fonts/truetype/custom
     restart: always
   
   nextcloud_fpm:
@@ -41,7 +47,7 @@ services:
       - nextcloud_db
       - onlyoffice
     volumes:
-      - philleconnect_nextcloud_html:/var/www/html
+      - nextcloud_html:/var/www/html
     restart: always
     environment:
       - NEXTCLOUD_ADMIN_USER=admin
@@ -52,7 +58,7 @@ services:
       - MYSQL_PASSWORD=test
       - MYSQL_HOST=nextcloud_db
     networks:
-      - servercontainers_philleconnect
+      - nextcloud
   
   nextcloud:
     build: nginx/
@@ -63,18 +69,22 @@ services:
       - nextcloud_fpm
       - onlyoffice
     volumes:
-      - philleconnect_nextcloud_html:/var/www/html
+      - nextcloud_html:/var/www/html
     restart: always
     networks:
-      - servercontainers_philleconnect
+      - nextcloud
 
 volumes:
-  philleconnect_nextcloud_db:
-  philleconnect_nextcloud_html:
-#    - ./nextcloud/data:/var/www/html/data
+  nextcloud_db:
+  nextcloud_html:
+  onlyoffice_log:
+  onlyoffice_lib:
+  onlyoffice_sql:
+  onlyoffice_data:
+  onlyoffice_fonts:
 
 networks:
 #  default:
 #    external:
-#      name: servercontainers_philleconnect
-  philleconnect_nextcloud:
+#      name: philleconnect_network
+  nextcloud:

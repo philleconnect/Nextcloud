@@ -17,4 +17,3 @@ COPY default /etc/nginx/sites-enabled/default
 
 #ENTRYPOINT ["/entrypoint.sh"]
 CMD ["nginx", "-g", "daemon off;"] 
- 
