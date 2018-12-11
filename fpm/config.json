@@ -1,0 +1,45 @@
+{
+    "system": {
+        "trusted_domains": [
+            TRUSTED_DOMAINS
+        ],
+        "trusted_proxies": [
+            TRUSTED_PROXIES
+        ],
+        "overwrite.cli.url": "https:\/\/NEXTCLOUD_DOMAIN",
+        "overwritehost": "NEXTCLOUD_DOMAIN"
+    },
+    "apps": {
+        "files_external": {
+            "allow_user_mounting": "no",
+            "enabled": "yes"
+        },
+        "onlyoffice": {
+            "DocumentServerInternalUrl": "http:\/\/onlyoffice\/",
+            "DocumentServerUrl": "https:\/\/ONLYOFFICE_DOMAIN\/",
+            "StorageUrl": "https:\/\/NEXTCLOUD_DOMAIN\/",
+            "defFormats": "{\"csv\":\"false\",\"doc\":\"true\",\"docm\":\"false\",\"docx\":\"true\",\"dotx\":\"false\",\"epub\":\"false\",\"html\":\"false\",\"odp\":\"true\",\"ods\":\"true\",\"odt\":\"true\",\"pdf\":\"false\",\"potm\":\"false\",\"potx\":\"false\",\"ppsm\":\"false\",\"ppsx\":\"false\",\"ppt\":\"true\",\"pptm\":\"false\",\"pptx\":\"true\",\"rtf\":\"false\",\"txt\":\"false\",\"xls\":\"true\",\"xlsm\":\"false\",\"xlsx\":\"true\",\"xltm\":\"false\",\"xltx\":\"false\"}",
+            "editFormats": "{\"csv\":\"true\",\"odp\":\"true\",\"ods\":\"true\",\"odt\":\"true\",\"rtf\":\"false\",\"txt\":\"true\"}",
+            "enabled": "yes",
+            "sameTab": "true"
+        },
+        "user_ldap": {
+            "enabled": "yes",
+            "s01ldap_base": "dc=SLAPD_DOMAIN1,dc=SLAPD_DOMAIN0",
+            "s01ldap_base_groups": "dc=SLAPD_DOMAIN1,dc=SLAPD_DOMAIN0",
+            "s01ldap_base_users": "dc=SLAPD_DOMAIN1,dc=SLAPD_DOMAIN0",
+            "s01ldap_gid_number": "gidNumber",
+            "s01ldap_group_display_name": "cn",
+            "s01ldap_group_filter": "(|(cn=students)(cn=teachers))",
+            "s01ldap_groupfilter_groups": "students\nteachers",
+            "s01ldap_host": "LDAP_HOST",
+            "s01ldap_login_filter": "(&(|(objectclass=inetOrgPerson))(uid=%uid))",
+            "s01ldap_port": "389",
+            "s01ldap_tls": "0",
+            "s01ldap_userfilter_objectclass": "inetOrgPerson",
+            "s01ldap_userlist_filter": "(|(objectclass=inetOrgPerson))",
+            "s01use_memberof_to_detect_membership": "1",
+            "types": "authentication"
+        }
+    }
+}
