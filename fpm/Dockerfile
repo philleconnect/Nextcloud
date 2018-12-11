@@ -32,4 +32,5 @@ WORKDIR "/var/www/html"
 ##RUN php occ maintenance:mode --off
 
 WORKDIR "/"
-ENTRYPOINT ["/entryFirst.sh", "$@"]
+ENTRYPOINT ["/bin/bash"]
+CMD ["/entryFirst.sh"]
