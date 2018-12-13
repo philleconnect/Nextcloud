@@ -3,6 +3,9 @@ Nextcloud-Container including an online-office package (Collabora or Onlyoffice)
 
 # !!! THIS IS STILL IN ALPHA-STATE !!!
 
+## 502-Bad-Gatewas-error
+wait
+
 ## To install:
 
 * start the containers

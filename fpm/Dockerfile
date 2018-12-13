@@ -11,6 +11,9 @@ COPY entryFirst.sh /entryFirst.sh
 RUN chmod +x /entryFirst.sh
 RUN sed -i 's\^exec "$@"\exec /entryFirst.sh\g' /entrypoint.sh
 
+COPY skeletondirectory /skeletondirectory
+RUN chown -R www-data:root /skeletondirectory
+
 #RUN echo "*/15 * * * * php-nextcloud php -f /srv/www/nextcloud/cron.php" > /etc/cron.d/9999nextcloud
 ##RUN php occ config:app:set core backgroundjobs_mode --value="cron"
 #RUN php occ app:enable files_external
