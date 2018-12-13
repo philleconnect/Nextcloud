@@ -42,7 +42,7 @@ services:
     restart: always
   
   nextcloud_fpm:
-    #image: nextcloud:14-fpm
+    #image: nextcloud:15-fpm
     build: fpm/
     container_name: nextcloud_fpm
     links:
@@ -50,7 +50,7 @@ services:
       - onlyoffice
     volumes:
       - nextcloud_html:/var/www/html
-      - ../ServerContainers/mount/samba:/data
+      - ../ServerContainers/mount/samba:/samba
     restart: always
     env_file:
       - ./settings.env
