@@ -34,6 +34,7 @@
             "s01ldap_gid_number": "gidNumber",
             "s01ldap_group_display_name": "cn",
             "s01ldap_group_filter": "(|(cn=students)(cn=teachers))",
+            "s01ldap_group_member_assoc_attribute": "memberUid",
             "s01ldap_groupfilter_groups": "students\nteachers",
             "s01ldap_host": "LDAP_HOST",
             "s01ldap_login_filter": "(&(|(objectclass=inetOrgPerson))(uid=%uid))",
