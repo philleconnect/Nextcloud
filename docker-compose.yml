@@ -9,11 +9,13 @@ services:
       - nextcloud_db:/var/lib/mysql
     networks:
       - nextcloud
-    environment:
-      - MYSQL_ROOT_PASSWORD=test
-      - MYSQL_PASSWORD=test
-      - MYSQL_DATABASE=nextcloud
-      - MYSQL_USER=nextcloud
+    env_file:
+      - ./settings.env
+#    environment:
+#      - MYSQL_ROOT_PASSWORD=test
+#      - MYSQL_PASSWORD=test
+#      - MYSQL_DATABASE=nextcloud
+#      - MYSQL_USER=nextcloud
   
 #  collabora:
 #    image: collabora/code:3.0.1.4
