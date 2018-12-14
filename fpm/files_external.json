@@ -1,0 +1,150 @@
+[
+    {
+        "mount_id": 1,
+        "mount_point": "\/EigenesLaufwerk",
+        "storage": "\\OC\\Files\\Storage\\Local",
+        "authentication_type": "null::null",
+        "configuration": {
+            "datadir": "\/samba\/teachers\/$user"
+        },
+        "options": {
+            "encrypt": true,
+            "previews": true,
+            "enable_sharing": true,
+            "filesystem_check_changes": 1,
+            "encoding_compatibility": false,
+            "readonly": false
+        },
+        "applicable_users": [],
+        "applicable_groups": [
+            "teachers"
+        ]
+    },
+    {
+        "mount_id": 2,
+        "mount_point": "\/EigenesLaufwerk",
+        "storage": "\\OC\\Files\\Storage\\Local",
+        "authentication_type": "null::null",
+        "configuration": {
+            "datadir": "\/samba\/students\/$user"
+        },
+        "options": {
+            "encrypt": true,
+            "previews": true,
+            "enable_sharing": true,
+            "filesystem_check_changes": 1,
+            "encoding_compatibility": false,
+            "readonly": false
+        },
+        "applicable_users": [],
+        "applicable_groups": [
+            "students"
+        ]
+    },
+    {
+        "mount_id": 3,
+        "mount_point": "\/SchulTausch",
+        "storage": "\\OC\\Files\\Storage\\Local",
+        "authentication_type": "null::null",
+        "configuration": {
+            "datadir": "\/samba\/schoolExchange"
+        },
+        "options": {
+            "encrypt": true,
+            "previews": true,
+            "enable_sharing": false,
+            "filesystem_check_changes": 1,
+            "encoding_compatibility": false,
+            "readonly": false
+        },
+        "applicable_users": [],
+        "applicable_groups": [
+            "students",
+            "teachers"
+        ]
+    },
+    {
+        "mount_id": 4,
+        "mount_point": "\/SchulVorlagen",
+        "storage": "\\OC\\Files\\Storage\\Local",
+        "authentication_type": "null::null",
+        "configuration": {
+            "datadir": "\/samba\/schoolTemplate"
+        },
+        "options": {
+            "encrypt": true,
+            "previews": true,
+            "enable_sharing": false,
+            "filesystem_check_changes": 1,
+            "encoding_compatibility": false,
+            "readonly": false
+        },
+        "applicable_users": [],
+        "applicable_groups": [
+            "teachers"
+        ]
+    },
+    {
+        "mount_id": 5,
+        "mount_point": "\/SchulVorlagen",
+        "storage": "\\OC\\Files\\Storage\\Local",
+        "authentication_type": "null::null",
+        "configuration": {
+            "datadir": "\/samba\/schoolTemplate"
+        },
+        "options": {
+            "encrypt": true,
+            "previews": true,
+            "enable_sharing": false,
+            "filesystem_check_changes": 1,
+            "encoding_compatibility": false,
+            "readonly": true
+        },
+        "applicable_users": [],
+        "applicable_groups": [
+            "students"
+        ]
+    },
+    {
+        "mount_id": 6,
+        "mount_point": "\/LehrerTausch",
+        "storage": "\\OC\\Files\\Storage\\Local",
+        "authentication_type": "null::null",
+        "configuration": {
+            "datadir": "\/samba\/teacherExchange"
+        },
+        "options": {
+            "encrypt": true,
+            "previews": true,
+            "enable_sharing": false,
+            "filesystem_check_changes": 1,
+            "encoding_compatibility": false,
+            "readonly": false
+        },
+        "applicable_users": [],
+        "applicable_groups": [
+            "teachers"
+        ]
+    },
+    {
+        "mount_id": 7,
+        "mount_point": "\/LehrerVorlagen",
+        "storage": "\\OC\\Files\\Storage\\Local",
+        "authentication_type": "null::null",
+        "configuration": {
+            "datadir": "\/samba\/teacherTemplate"
+        },
+        "options": {
+            "encrypt": true,
+            "previews": true,
+            "enable_sharing": false,
+            "filesystem_check_changes": 1,
+            "encoding_compatibility": false,
+            "readonly": true
+        },
+        "applicable_users": [],
+        "applicable_groups": [
+            "teachers"
+        ]
+    },
+]

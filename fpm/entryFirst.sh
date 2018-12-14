@@ -17,6 +17,8 @@ sed -i "s/SLAPD_DOMAIN0/$SLAPD_DOMAIN0/g" /var/www/config.json
 sed -i "s/SLAPD_DOMAIN1/$SLAPD_DOMAIN1/g" /var/www/config.json
 sudo -u www-data php occ config:import /var/www/config.json
 
+sudo -u www-data php occ files_external:import /var/www/files_external.json
+
 sudo -u www-data php occ config:system:set skeletondirectory --value '/skeletondirectory'
 
 echo 'PhilleConnect-integration complete, starting php-fpm'

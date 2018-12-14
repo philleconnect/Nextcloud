@@ -7,6 +7,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends sudo
 
 COPY config.json /var/www/config.json
 RUN chown www-data:root /var/www/config.json
+COPY files_external.json /var/www/files_external.json
+RUN chown www-data:root /var/www/files_external.json
 COPY entryFirst.sh /entryFirst.sh
 RUN chmod +x /entryFirst.sh
 RUN sed -i 's\^exec "$@"\exec /entryFirst.sh\g' /entrypoint.sh
