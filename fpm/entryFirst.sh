@@ -19,7 +19,9 @@ sudo -u www-data php occ config:import /var/www/config.json
 
 sudo -u www-data php occ files_external:import /var/www/files_external.json
 
-sudo -u www-data php occ config:system:set skeletondirectory --value '/skeletondirectory'
+#sudo -u www-data php occ config:system:set skeletondirectory --value '/skeletondirectory'
+rm -r /var/www/html/core/skeleton
+cp -r /skeletondirectory /var/www/html/core/skeleton
 
 echo 'PhilleConnect-integration complete, starting php-fpm'
 
