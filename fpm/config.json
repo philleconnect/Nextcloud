@@ -31,6 +31,7 @@
             "s01ldap_base_users": "dc=SLAPD_DOMAIN1,dc=SLAPD_DOMAIN0",
             "s01ldap_configuration_active": "1",
             "s01ldap_display_name": "cn",
+            "s01ldap_expert_username_attr": "cn",
             "s01ldap_gid_number": "gidNumber",
             "s01ldap_group_display_name": "cn",
             "s01ldap_group_filter": "(|(cn=students)(cn=teachers))",
