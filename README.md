@@ -2,7 +2,9 @@
 
 Nextcloud-Container including an online-office package (Collabora or Onlyoffice) that mounts the user-directories
 
-# This optional container is still in beta-state! I have it set up in a productive environment, but expect some bugs, please report them!
+# beta-testing!
+
+This optional container is still in beta-state! I have it set up in a productive environment, but expect some bugs, please report them!
 
 ## To install:
 
