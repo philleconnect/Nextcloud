@@ -1,98 +1,38 @@
 # NextCloud-Server with OnlyOffice-Integration
+
 Nextcloud-Container including an online-office package (Collabora or Onlyoffice) that mounts the user-directories
 
-# !!! THIS IS STILL IN ALPHA-STATE !!!
-
-## 502-Bad-Gatewas-error
-wait
+# This optional container is still in beta-state! I have it set up in a productive environment, but expect some bugs, please report them!
 
 ## To install:
 
-* start the containers
-* manually add `'onlyoffice'` to the `trusted_domains`-array in `/var/www/html/config/config.php` (inside the nextcloud-container):
-  - `docker exec -ti nextcloud /bin/bash`
-  - `nano /var/www/html/config/config.php`
-  - add line `    1 => 'onlyoffice',` after line 23
-  - optionally add a line `  'trusted_proxies' => ['172.16.0.102', 'philleconnect'],` after the trusted domains (see also below)
+* Clone this repository: `git clone https://github.com/philleconnect/Nextcloud`. Make sure the cloned folder `Nextcloud` is in the same path like your `ServerContainers`-folder!
+* Configure your installation by adapting the values in the `settings.env`. It won't work if you don't have a working domain set up! But for testing you can also enter your host-IP followed by the port 86, i.e. `192.168.0.100:86`.
+* Call the Domain from any browser and you are set up! The first call and login might take a little while, espeacially if you get a 502 Bad Gateway error, please hang on for a few minutes, Nextcloud takes its time to set up!
 
-## connect to LDAP
+## Access from the Web
 
-activate LDAP-App and in the settings for it:
+To access your installation from the web you might want to set up a proxy-Server, that can at the same time take care for the https-encryption.
 
-* add ldap-Server-address (=philleconnect-Server) like `172.16.0.102`
-* add `cn=admin,dc=ldap,dc=philleconnect` and password, base-dn should fill in to `dc=ldap,dc=philleconnect` and test should succeed
-* on the next page "user" for `inetOrgPerson` the ldap-filter might get configured to `(|(objectclass=inetOrgPerson))`, if it does not do it by hand
-* the login-attribures might get filled with `(&(|(objectclass=inetOrgPerson))(uid=%uid))`, if not do it by hand
-* for the groups select `students` and `teachers`
-* in the advanced-settings type in `cn` for the displayName (folder settings) and the name of the home-folder (special settings)
-
-## OnlyOffice
-
-activate app for OnlyOffice and set it up in the settings:
-
-* someting like `http://172.16.0.100:82/` (or `onlyoffice.my-domain.tld` if you run it under that domain) in the first field 
-* `http://onlyoffice/` for internal document editing
-* `https://nextcloud.my-domain.tld` for external editing
-* the adress needs to be in the trusted domains (see above)!
-
-## behind proxy
-
-If you run this behind a proxy, i.e. to make it accessible from the web, maybe with a https-secured connection, you might need to add these parameters to the `/var/www/html/config/config.php`:
-
-```
-  'trusted_proxies' => 
-  array (
-    0 => '172.16.0.102',
-    1 => 'philleconnect',
-  ),
-  'overwrite.cli.url' => 'https://nextcloud.my-domain.tld',
-  'overwritehost'     => 'nextcloud.my-domain.tld',
-```
-
-My working nginx-config looks like this:
+This is my config for nginx that does the job:
 
 ```
 server {
     listen 443 ssl;
     listen [::]:443 ssl;
-    ssl_certificate /etc/letsencrypt/live/nextcloud.my-domain.tld/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/nextcloud.my-domain.tld/privkey.pem;
-    server_name nextcloud.my-domain.tld;
-    location / {
-        proxy_set_header        X-Forwarded-Proto   https;
-        proxy_set_header        X-Real-IP           $remote_addr;
-        proxy_set_header        X-Forwarded-For     $proxy_add_x_forwarded_for;
-        proxy_pass http://172.16.0.100:86/;
-    }
-}
-server {
-    listen 443 ssl;
-    listen [::]:443 ssl;
-    ssl_certificate /etc/letsencrypt/live/onlyoffice.my-domain.tld/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/onlyoffice.my-domain.tld/privkey.pem;
-    server_name onlyoffice.my-domain.tld;
+    ssl_certificate /etc/letsencrypt/live/nextcloud.mydomain.tld/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/nextcloud.mydomain.tld/privkey.pem;
+    server_name nextcloud.mydomain.tld;
     location / {
         proxy_set_header        Host                $host;
         proxy_set_header        X-Forwarded-Proto   https;
         proxy_set_header        X-Real-IP           $remote_addr;
         proxy_set_header        X-Forwarded-For     $proxy_add_x_forwarded_for;
-        proxy_pass http://172.16.0.100:82/;
+        proxy_pass http://172.16.0.102:86/;
     }
 }
 ```
 
-Just use your own domains and your own IPs!
+Guess where my Let's Encryp certificate are, that certbot is getting.
 
-
-## Samba-Shares
-
-There is still a problem mounting the samba-shares which might be a recent bug in nextcloud. The cpu-load explodes when mounting samba-shares, so this will come later.
-Try with:
-
-* activate app for external storage support and
-* set up your folders:
-** choose `SMB/CIFS`
-** test with "username and password"
-** for production "save login in session" is what you want
-
-Please be aware that, when setting up shares as the Nextcloud-admin, you can only reach them as an according LDAP-user, so those errors can be ignored during setup.
+Remember to have as well an according config for OnlyOffice pointing to port 82!
