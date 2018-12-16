@@ -38,3 +38,5 @@ server {
 Guess where my Let's Encryp certificate are, that certbot is getting.
 
 Remember to have as well an according config for OnlyOffice pointing to port 82!
+
+And make sure your have your proxy-IP in your `settings.env` as `TRUSTED_PROXIES`.
