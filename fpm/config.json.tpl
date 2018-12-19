@@ -6,7 +6,7 @@
         "trusted_proxies": [
             TRUSTED_PROXIES
         ],
-        "overwrite.cli.url": "https:\/\/NEXTCLOUD_DOMAIN",
+        "overwrite.cli.url": "PROTOCOL_PREFIX:\/\/NEXTCLOUD_DOMAIN",
         "overwritehost": "NEXTCLOUD_DOMAIN"
     },
     "apps": {
@@ -16,8 +16,8 @@
         },
         "onlyoffice": {
             "DocumentServerInternalUrl": "http:\/\/onlyoffice\/",
-            "DocumentServerUrl": "https:\/\/ONLYOFFICE_DOMAIN\/",
-            "StorageUrl": "https:\/\/NEXTCLOUD_DOMAIN\/",
+            "DocumentServerUrl": "PROTOCOL_PREFIX:\/\/ONLYOFFICE_DOMAIN\/",
+            "StorageUrl": "PROTOCOL_PREFIX:\/\/NEXTCLOUD_DOMAIN\/",
             "defFormats": "{\"csv\":\"false\",\"doc\":\"true\",\"docm\":\"false\",\"docx\":\"true\",\"dotx\":\"false\",\"epub\":\"false\",\"html\":\"false\",\"odp\":\"true\",\"ods\":\"true\",\"odt\":\"true\",\"pdf\":\"false\",\"potm\":\"false\",\"potx\":\"false\",\"ppsm\":\"false\",\"ppsx\":\"false\",\"ppt\":\"true\",\"pptm\":\"false\",\"pptx\":\"true\",\"rtf\":\"false\",\"txt\":\"false\",\"xls\":\"true\",\"xlsm\":\"false\",\"xlsx\":\"true\",\"xltm\":\"false\",\"xltx\":\"false\"}",
             "editFormats": "{\"csv\":\"true\",\"odp\":\"true\",\"ods\":\"true\",\"odt\":\"true\",\"rtf\":\"false\",\"txt\":\"true\"}",
             "enabled": "yes",
