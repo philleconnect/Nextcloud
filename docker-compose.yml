@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 
 services:
   nextcloud_db:
@@ -17,14 +17,21 @@ services:
 #      - MYSQL_DATABASE=nextcloud
 #      - MYSQL_USER=nextcloud
   
-#  collabora:
-#    image: collabora/code:3.0.1.4
-#    container_name: collabora
-#    environment:
-#      domain: collabora
-#    ports:
-#      - 9980:9980
-#    restart: always
+  collabora:
+    image: collabora/code:latest
+    container_name: collabora
+    environment:
+      username: "admin"
+      password: "test"
+      domain: "192.168.178.44"
+      dictionaries: "de_DE en_GB"
+      extra_params: "--o:ssl.enable=false"
+#      DONT_GEN_SSL_CERT: "set"
+    cap_add:
+      - MKNOD
+    ports:
+      - "9980:9980"
+    restart: always
   
   onlyoffice:
     image: onlyoffice/documentserver
