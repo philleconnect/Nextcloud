@@ -8,7 +8,7 @@
         ],
         "overwrite.cli.url": "PROTOCOL_PREFIX:\/\/NEXTCLOUD_DOMAIN",
         "overwritehost": "NEXTCLOUD_DOMAIN",
-        "lost_password_link": "lost_password.html"
+        "lost_password_link": "/lost_password.html"
     },
     "apps": {
         "files_external": {
