@@ -6,6 +6,8 @@ sudo -u www-data php occ app:install onlyoffice
 sudo -u www-data php occ app:enable onlyoffice
 sudo -u www-data php occ app:enable user_ldap
 sudo -u www-data php occ ldap:create-empty-config
+sudo -u www-data php occ app:install circles
+sudo -u www-data php occ app:enable circles
 
 echo 'configuring nextcloud for PhilleConnect'
 cp -f /config.json.tpl /var/www/config.json
