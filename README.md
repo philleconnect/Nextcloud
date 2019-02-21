@@ -52,6 +52,27 @@ Remember to have as well an according config for OnlyOffice pointing to port 82!
 
 **Make sure your have your proxy-IP in your `settings.env` as `TRUSTED_PROXIES`!**
 
+## Update
+
+You can update the PhilleConnect-Part of this the normal way by executing
+
+```
+git pull
+docker-compose up -d --build
+```
+
+from the `Nextcloud`-folder on the command line.
+
+To get the latest subversion of Nextcloud please execute
+
+```
+docker pull nextcloud:15-fpm
+```
+
+before this.
+
+Upgrades to the major-Versions will be tested by us first and will then be updated within PhilleConnect.
+
 ## Customize
 
 You can of course customize the settings like the welcome-logo, languages etc. and install your own apps or deinstall the preinstalled ones like OnlyOffice.
