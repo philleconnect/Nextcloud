@@ -52,6 +52,12 @@ Remember to have as well an according config for OnlyOffice pointing to port 82!
 
 **Make sure your have your proxy-IP in your `settings.env` as `TRUSTED_PROXIES`!**
 
+## Customize
+
+You can of course customize the settings like the welcome-logo, languages etc. and install your own apps or deinstall the preinstalled ones like OnlyOffice.
+
+Just log in as admin with the credentials you have set up in the `settings.env` and go ahead!
+
 ## Only for developers
 
 You can access the Container with the command
