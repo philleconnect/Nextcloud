@@ -15,8 +15,8 @@ RUN sed -i 's\^exec "$@"\exec /entryFirst.sh\g' /entrypoint.sh
 
 COPY skeletondirectory /skeletondirectory
 RUN chown -R www-data:root /skeletondirectory
-COPY lost_password.html /var/www/html/lost_password.html
-RUN chown -R www-data:root /var/www/html/lost_password.html
+COPY lost_password.html /var/www/lost_password.html
+RUN chown -R www-data:root /var/www/lost_password.html
 
 #RUN echo "*/15 * * * * php-nextcloud php -f /srv/www/nextcloud/cron.php" > /etc/cron.d/9999nextcloud
 ##RUN php occ config:app:set core backgroundjobs_mode --value="cron"
