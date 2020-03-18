@@ -37,6 +37,9 @@ sudo -u www-data php occ files_external:import /var/www/files_external.json
 rm -r /var/www/html/core/skeleton
 cp -r /skeletondirectory /var/www/html/core/skeleton
 
+# set max_children for php-fpm:
+sed -i "s/PM_MAX_CHILDREN/$PM_MAX_CHILDREN/g" /usr/local/etc/php-fpm.d/www.conf
+
 cp -r /var/www/lost_password.html /var/www/html/lost_password.html
 
 # make sure created files can be edited from samba as well:

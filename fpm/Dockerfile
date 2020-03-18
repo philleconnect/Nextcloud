@@ -9,6 +9,7 @@ COPY config.json.tpl /config.json.tpl
 RUN chown www-data:root /config.json.tpl
 COPY files_external.json /var/www/files_external.json
 RUN chown www-data:root /var/www/files_external.json
+COPY www.conf.tpl /usr/local/etc/php-fpm.d/www.conf
 COPY entryFirst.sh /entryFirst.sh
 RUN chmod +x /entryFirst.sh
 RUN sed -i 's\^exec "$@"\exec /entryFirst.sh\g' /entrypoint.sh

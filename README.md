@@ -14,6 +14,8 @@ This will build the Nextcloud-container among other containers (database, OnlyOf
 
 The files are mounted to the Nextcloud-container as a docker-volume. This only works out-of-the-box when this is executed on the same host (`Nextcloud`-folder need to be in the same parent folder like `ServerContainers`).
 
+Before first start please copy the `settings.env.default` to `settings.env`. That way all your changes will be independent from the git.
+
 All Settings (Nextcloud, Apps, Ldap, OnlyOffice etc.) are being prepared on container start (using the occ-command of Nextcloud), so you just need to make very few adaptions to your environment like entering your IP in the `settings.env`.
 
 ### Do you need it the special way?
