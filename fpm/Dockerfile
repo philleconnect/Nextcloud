@@ -1,4 +1,4 @@
-FROM nextcloud:18-fpm
+FROM nextcloud:19-fpm
 
 MAINTAINER Dirk Winkel <it@polarwinkel.de>
 
