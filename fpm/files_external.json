@@ -14,9 +14,7 @@
             "filesystem_check_changes": 1,
             "encoding_compatibility": false,
             "readonly": false
-        },
-        "applicable_users": [],
-        "applicable_groups": []
+        }
     },
     {
         "mount_id": 3,
