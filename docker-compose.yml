@@ -59,7 +59,7 @@ services:
       - onlyoffice
     volumes:
       - nextcloud_html:/var/www/html
-      - /mnt/userdata:/samba
+      - /mnt/userdata:/mnt/userdata
     restart: always
     env_file:
       - ./settings.env
