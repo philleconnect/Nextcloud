@@ -5,7 +5,7 @@
         "storage": "\\OC\\Files\\Storage\\Local",
         "authentication_type": "null::null",
         "configuration": {
-            "datadir": "\/samba\/teachers\/$user"
+            "datadir": "\/users\/$user"
         },
         "options": {
             "encrypt": true,
@@ -26,7 +26,7 @@
         "storage": "\\OC\\Files\\Storage\\Local",
         "authentication_type": "null::null",
         "configuration": {
-            "datadir": "\/samba\/students\/$user"
+            "datadir": "\/samba\/users\/$user"
         },
         "options": {
             "encrypt": true,
@@ -47,7 +47,7 @@
         "storage": "\\OC\\Files\\Storage\\Local",
         "authentication_type": "null::null",
         "configuration": {
-            "datadir": "\/samba\/schoolExchange"
+            "datadir": "\/samba\/shares\/schoolExchange"
         },
         "options": {
             "encrypt": true,
@@ -69,7 +69,7 @@
         "storage": "\\OC\\Files\\Storage\\Local",
         "authentication_type": "null::null",
         "configuration": {
-            "datadir": "\/samba\/schoolTemplate"
+            "datadir": "\/samba\/shares\/schoolTemplate"
         },
         "options": {
             "encrypt": true,
@@ -90,7 +90,7 @@
         "storage": "\\OC\\Files\\Storage\\Local",
         "authentication_type": "null::null",
         "configuration": {
-            "datadir": "\/samba\/schoolTemplate"
+            "datadir": "\/samba\/shares\/schoolTemplate"
         },
         "options": {
             "encrypt": true,
@@ -111,7 +111,7 @@
         "storage": "\\OC\\Files\\Storage\\Local",
         "authentication_type": "null::null",
         "configuration": {
-            "datadir": "\/samba\/teacherExchange"
+            "datadir": "\/samba\/shares\/teacherExchange"
         },
         "options": {
             "encrypt": true,
@@ -132,7 +132,7 @@
         "storage": "\\OC\\Files\\Storage\\Local",
         "authentication_type": "null::null",
         "configuration": {
-            "datadir": "\/samba\/teacherTemplate"
+            "datadir": "\/samba\/shares\/teacherTemplate"
         },
         "options": {
             "encrypt": true,
