@@ -16,30 +16,7 @@
             "readonly": false
         },
         "applicable_users": [],
-        "applicable_groups": [
-            "teachers"
-        ]
-    },
-    {
-        "mount_id": 2,
-        "mount_point": "\/EigenesLaufwerk",
-        "storage": "\\OC\\Files\\Storage\\Local",
-        "authentication_type": "null::null",
-        "configuration": {
-            "datadir": "\/samba\/users\/$user"
-        },
-        "options": {
-            "encrypt": true,
-            "previews": true,
-            "enable_sharing": true,
-            "filesystem_check_changes": 1,
-            "encoding_compatibility": false,
-            "readonly": false
-        },
-        "applicable_users": [],
-        "applicable_groups": [
-            "students"
-        ]
+        "applicable_groups": []
     },
     {
         "mount_id": 3,
