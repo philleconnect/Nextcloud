@@ -10,13 +10,13 @@ services:
     networks:
       - nextcloud
     env_file:
-      - ./settings.env
+      - ./settings.env.default
 #    environment:
 #      - MYSQL_ROOT_PASSWORD=test
 #      - MYSQL_PASSWORD=test
 #      - MYSQL_DATABASE=nextcloud
 #      - MYSQL_USER=nextcloud
-  
+
 #  collabora:
 #    image: collabora/code:latest
 #    container_name: collabora
@@ -32,7 +32,7 @@ services:
 #    ports:
 #      - "9980:9980"
 #    restart: always
-  
+
   onlyoffice:
     image: onlyoffice/documentserver
     container_name: onlyoffice
@@ -49,7 +49,7 @@ services:
       - onlyoffice_data:/var/www/onlyoffice/Data
       - onlyoffice_fonts:/usr/share/fonts/truetype/custom
     restart: always
-  
+
   nextcloud_fpm:
     #image: nextcloud:15-fpm
     build: fpm/
@@ -62,10 +62,10 @@ services:
       - /mnt/userdata:/mnt/userdata
     restart: always
     env_file:
-      - ./settings.env
+      - ./settings.env.default
     networks:
       - nextcloud
-  
+
   nextcloud:
     build: nginx/
     container_name: nextcloud
