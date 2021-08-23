@@ -66,6 +66,7 @@ services:
       - ./settings.env
     networks:
       - nextcloud
+      - ldap-net
   
   nextcloud:
     build: nginx/
@@ -95,3 +96,5 @@ networks:
 #    external:
 #      name: philleconnect_network
   nextcloud:
+  ldap-net:
+    external: true
