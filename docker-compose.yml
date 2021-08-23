@@ -11,6 +11,7 @@ services:
       - nextcloud
     env_file:
       - ./settings.env
+    command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW –innodb-read-only-compressed=OFF
 #    environment:
 #      - MYSQL_ROOT_PASSWORD=test
 #      - MYSQL_PASSWORD=test
