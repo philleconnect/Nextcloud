@@ -1,3 +1,5 @@
+__Archived: Not actively maintained anymore!__
+
 # NextCloud-Server with OnlyOffice-Integration
 
 Nextcloud-Container including an online-office package (Collabora or Onlyoffice) that mounts the user-directories
